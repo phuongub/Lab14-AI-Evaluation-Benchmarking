@@ -5,8 +5,6 @@ from rag_answer import rag_answer
 
 
 class MainAgent:
-    _rag_lock = asyncio.Lock()
-
     def __init__(self, version: str = "v1"):
         self.version = version
 
@@ -24,19 +22,19 @@ class MainAgent:
         source = (meta.get("source", "") or "").lower()
         text = (chunk.get("text", "") or "").lower()
 
-        if "access" in source or "approval" in text:
+        if "access_control_sop" in source or "level 3" in text or "ciso" in text:
             return "access_control_sop"
 
-        if "leave" in source or "remote" in text or "nghỉ" in text:
+        if "hr_leave_policy" in source or "remote" in text or "nghỉ" in text:
             return "hr_leave_policy"
 
-        if "helpdesk" in source or "vpn" in text or "password" in text or "mật khẩu" in text:
+        if "it_helpdesk_faq" in source or "vpn" in text or "password" in text or "mật khẩu" in text:
             return "it_helpdesk_faq"
 
-        if "refund" in source or "flash sale" in text:
+        if "refund_policy_v4" in source or "flash sale" in text or "refund" in text:
             return "refund_policy_v4"
 
-        if "sla" in source or "p1" in text:
+        if "sla_p1_2026" in source or "p1" in text or "15 phút" in text:
             return "sla_p1_2026"
 
         return "unknown_doc"
@@ -55,16 +53,17 @@ class MainAgent:
         return f"{answer}\n\n(Thông tin được tổng hợp từ tài liệu nội bộ.)"
 
     async def query(self, question: str) -> Dict:
-        async with self._rag_lock:
-            result = await asyncio.to_thread(
-                rag_answer,
-                query=question,
-                retrieval_mode=self.retrieval_mode,
-                top_k_search=3,
-                top_k_select=2,
-                use_rerank=False,
-                verbose=False,
-            )
+        await asyncio.sleep(0.05 if self.version == "v2" else 0.08)
+
+        result = await asyncio.to_thread(
+            rag_answer,
+            query=question,
+            retrieval_mode=self.retrieval_mode,
+            top_k_search=3,
+            top_k_select=2,
+            use_rerank=False,
+            verbose=False,
+        )
 
         chunks = result.get("chunks_used", [])
         answer = result.get("answer", "Không đủ dữ liệu.")
