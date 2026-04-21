@@ -23,7 +23,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -33,7 +33,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "paraphrase",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -43,7 +43,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -53,7 +53,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -63,7 +63,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "paraphrase",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -73,7 +73,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -83,7 +83,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -93,7 +93,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -103,7 +103,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -113,7 +113,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "paraphrase",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -123,7 +123,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -133,7 +133,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -143,7 +143,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -153,7 +153,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -163,7 +163,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -173,7 +173,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "hard",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -183,7 +183,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -193,7 +193,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -203,7 +203,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -213,7 +213,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
         {
@@ -223,7 +223,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["access_control_sop"]
+                "expected_retrieval_ids": ["access_control_sop"]
             }
         },
 
@@ -237,7 +237,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -247,7 +247,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "paraphrase",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -257,7 +257,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -267,7 +267,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -277,7 +277,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -287,7 +287,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -297,7 +297,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -307,7 +307,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -317,7 +317,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -327,7 +327,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -337,7 +337,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -347,7 +347,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -357,7 +357,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "hard",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -367,7 +367,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "policy",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -377,7 +377,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -387,7 +387,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -397,7 +397,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -407,7 +407,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "policy",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -417,7 +417,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -427,7 +427,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -437,7 +437,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "policy",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -447,7 +447,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
 
@@ -461,7 +461,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "faq",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -471,7 +471,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -481,7 +481,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -491,7 +491,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -501,7 +501,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -511,7 +511,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "faq",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -521,7 +521,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "troubleshooting",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -531,7 +531,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -541,7 +541,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -551,7 +551,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -561,7 +561,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "faq",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -571,7 +571,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "troubleshooting",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -581,7 +581,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "faq",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -591,7 +591,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -601,7 +601,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "troubleshooting",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -611,7 +611,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
         {
@@ -621,7 +621,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "contact",
-                "ground_truth_doc_ids": ["it_helpdesk_faq"]
+                "expected_retrieval_ids": ["it_helpdesk_faq"]
             }
         },
 
@@ -635,7 +635,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -645,7 +645,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -655,7 +655,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "policy",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -665,7 +665,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -675,7 +675,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -685,7 +685,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "edge",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -695,7 +695,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "hard",
                 "type": "edge",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -705,7 +705,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "edge",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -715,7 +715,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -725,7 +725,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -735,7 +735,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "process",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -745,7 +745,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -755,7 +755,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "policy",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -765,7 +765,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
 
@@ -779,7 +779,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "definition",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -789,7 +789,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -799,7 +799,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -809,7 +809,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "scenario",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -819,7 +819,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -829,7 +829,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -839,7 +839,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -849,7 +849,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "easy",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -859,7 +859,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "fact-check",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -869,7 +869,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -879,7 +879,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -889,7 +889,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -899,7 +899,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
         {
@@ -909,7 +909,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "process",
-                "ground_truth_doc_ids": ["sla_p1_2026"]
+                "expected_retrieval_ids": ["sla_p1_2026"]
             }
         },
 
@@ -923,7 +923,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "hard",
                 "type": "adversarial",
-                "ground_truth_doc_ids": ["hr_leave_policy"]
+                "expected_retrieval_ids": ["hr_leave_policy"]
             }
         },
         {
@@ -933,7 +933,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "hard",
                 "type": "adversarial",
-                "ground_truth_doc_ids": ["refund_policy_v4"]
+                "expected_retrieval_ids": ["refund_policy_v4"]
             }
         },
         {
@@ -943,7 +943,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "out-of-scope",
-                "ground_truth_doc_ids": []
+                "expected_retrieval_ids": []
             }
         },
         {
@@ -953,7 +953,7 @@ async def generate_qa_from_text(text: str, num_pairs: int = 5) -> List[Dict]:
             "metadata": {
                 "difficulty": "medium",
                 "type": "ambiguous",
-                "ground_truth_doc_ids": []
+                "expected_retrieval_ids": []
             }
         }
     ]
