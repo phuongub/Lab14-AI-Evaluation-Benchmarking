@@ -4,6 +4,7 @@ import os
 import time
 from engine.runner import BenchmarkRunner
 from agent.main_agent import MainAgent
+from engine.release_gate import ReleaseGate
 
 # Giả lập các components Expert
 class ExpertEvaluator:
@@ -46,7 +47,8 @@ async def run_benchmark_with_results(agent_version: str):
         "metrics": {
             "avg_score": sum(r["judge"]["final_score"] for r in results) / total,
             "hit_rate": sum(r["ragas"]["retrieval"]["hit_rate"] for r in results) / total,
-            "agreement_rate": sum(r["judge"]["agreement_rate"] for r in results) / total
+            "agreement_rate": sum(r["judge"]["agreement_rate"] for r in results) / total,
+            "avg_latency": sum(r["latency"] for r in results) / total
         }
     }
     return results, summary
@@ -66,21 +68,38 @@ async def main():
         return
 
     print("\n📊 --- KẾT QUẢ SO SÁNH (REGRESSION) ---")
-    delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
-    print(f"V1 Score: {v1_summary['metrics']['avg_score']}")
-    print(f"V2 Score: {v2_summary['metrics']['avg_score']}")
-    print(f"Delta: {'+' if delta >= 0 else ''}{delta:.2f}")
+    gate = ReleaseGate()
+    gate_result = gate.evaluate(v1_summary, v2_summary)
+
+    print(f"V1 Score: {v1_summary['metrics']['avg_score']:.2f}")
+    print(f"V2 Score: {v2_summary['metrics']['avg_score']:.2f}")
+    
+    delta = gate_result["metrics_compared"]["score_delta"]
+    print(f"Delta Score: {'+' if delta >= 0 else ''}{delta*100:.1f}%")
+
+    if gate_result["decision"] == "APPROVE":
+        print(f"✅ QUYẾT ĐỊNH: CHẤP NHẬN BẢN CẬP NHẬT (APPROVE)")
+    else:
+        print(f"❌ QUYẾT ĐỊNH: TỪ CHỐI (BLOCK RELEASE)")
+    
+    if gate_result["reasons"]:
+        print(f"🛑 Lý do Block:")
+        for r in gate_result["reasons"]:
+            print(f"   - {r}")
+    
+    if gate_result["warnings"]:
+        print(f"⚠️ Cảnh báo:")
+        for w in gate_result["warnings"]:
+            print(f"   - {w}")
 
     os.makedirs("reports", exist_ok=True)
+    # Cập nhật kết quả cuối cùng với trạng thái Release Gate
+    v2_summary["release_decision"] = gate_result
+
     with open("reports/summary.json", "w", encoding="utf-8") as f:
         json.dump(v2_summary, f, ensure_ascii=False, indent=2)
     with open("reports/benchmark_results.json", "w", encoding="utf-8") as f:
         json.dump(v2_results, f, ensure_ascii=False, indent=2)
-
-    if delta > 0:
-        print("✅ QUYẾT ĐỊNH: CHẤP NHẬN BẢN CẬP NHẬT (APPROVE)")
-    else:
-        print("❌ QUYẾT ĐỊNH: TỪ CHỐI (BLOCK RELEASE)")
 
 if __name__ == "__main__":
     asyncio.run(main())
