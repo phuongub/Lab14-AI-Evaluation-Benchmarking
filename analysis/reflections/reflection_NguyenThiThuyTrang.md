@@ -5,6 +5,8 @@
 
 **Nhóm**: C401-B4
 
+**Ngày**: 21/04/2026
+
 ---
 ## Engineering Contribution
 - Xây dựng module Retrieval Evaluation, cụ thể là hàm `evaluate_batch`:
