@@ -1,25 +1,24 @@
-# INDIVIDUAL REPORT - LAB 13: AI EVALUATION BENCHMARKING
+# INDIVIDUAL REPORT - LAB 14: AI EVALUATION BENCHMARKING
 
-Họ và tên: Trịnh Uyên Chi
+**Họ và tên:** Trịnh Uyên Chi
 
-Mã học viên: 2A202600435  
+**Mã học viên:** 2A202600435  
 
-Ngày: 21/04/2026
+**Ngày:** 21/04/2026
 
-### **Engineering Contribution (15/15)**
-* **Module Phức tạp:** Chịu trách nhiệm thiết kế và triển khai lõi xử lý của **Multi-Model Judge Engine**. Thay vì chỉ lấy điểm trung bình thô, tôi đã xây dựng hệ thống **Consensus Logic** tự động để tổng hợp kết quả từ nhiều giám khảo (GPT-4o, Gemini 1.5 Pro).
-* **Đóng góp kỹ thuật:** * Xây dựng hàm `_calculate_agreement_rate` sử dụng công thức hiệu chuẩn (Calibration) toán học để đo lường độ tin cậy của kết quả.
-    * Triển khai logic **Conflict Resolution**: Tự động phát hiện và gắn cờ (flagging) các trường hợp giám khảo "cãi nhau" vượt ngưỡng `conflict_threshold`, giúp hệ thống Gatekeeper ngăn chặn việc phát hành các phiên bản AI kém chất lượng.
-    * Tối ưu hóa hiệu năng bằng cách phối hợp với đồng đội triển khai `asyncio.gather`, giúp gọi đồng thời nhiều Judge, đáp ứng tiêu chuẩn chạy 50 cases dưới 2 phút.
+### **1. Engineering Contribution**
+* Trực tiếp thiết kế và triển khai lõi xử lý của Multi-Model Judge Engine. Tôi đã xây dựng hệ thống Consensus Logic tự động để hợp nhất kết quả từ các giám khảo AI khác nhau.
+* **Đóng góp kỹ thuật:** 
+    * Xây dựng hàm `_calculate_agreement_rate` sử dụng công thức hiệu chuẩn (Calibration) toán học để đo lường độ tin cậy của hệ thống đánh giá.
+    * Triển khai logic Conflict Resolution: Tự động phát hiện xung đột điểm số vượt ngưỡng, đồng thời thiết kế cơ chế Fallback Mock Judge để đảm bảo pipeline không bị gián đoạn khi API gặp lỗi.
+    * Phân tích và xử lý dữ liệu từ 60 test cases, thực hiện Failure Clustering để phân loại các lỗi hệ thống vào các nhóm: Retrieval Failure, Response Irrelevancy và Rate Limit.
 
-### **Technical Depth (15/15)**
-* **Hệ số đồng thuận & Cohen's Kappa:** Trong bài làm, tôi đã sử dụng công thức tính khoảng cách điểm số để đo lường sự đồng thuận. Khái niệm này tương đồng với **Cohen's Kappa** — một chỉ số thống kê dùng để đo lường mức độ đồng ý giữa hai người đánh giá (raters) về các mục phân loại, giúp loại bỏ yếu tố "trùng hợp ngẫu nhiên" trong đánh giá.
-* **Position Bias:** Hiểu rõ hiện tượng LLM thường có xu hướng thiên vị các đáp án đứng ở vị trí đầu tiên trong prompt. Để xử lý việc này, tôi đã thiết kế kiến trúc sẵn sàng cho việc đổi chỗ câu trả lời (Swap positions) để kiểm tra tính nhất quán của Judge.
-* **Trade-off (Chi phí & Chất lượng):** Việc sử dụng 2 Judge (GPT + Gemini) giúp tăng độ khách quan và giảm sai số cá nhân của model, nhưng làm tăng gấp đôi chi phí API và thời gian xử lý. Tôi đã tối ưu bằng cách đề xuất logic: chỉ khi có xung đột mới cần gọi thêm Judge thứ 3 hoặc sự can thiệp của con người, giúp cân bằng giữa ngân sách và chất lượng đánh giá.
+### **2. Technical Depth**
+* **Hiểu biết về Calibration & RAG Metrics:** Áp dụng kiến thức về đo lường sự đồng thuận (tương tự Cohen's Kappa) để tính toán độ tin cậy của Judge. Đồng thời, tôi đã chỉ ra được nguyên nhân cốt lõi khiến Hit Rate bằng 0.0 là do sự mất đồng bộ ID giữa script SDG và Ingestion Pipeline, chứ không đơn thuần là lỗi từ model.
+* **Tối ưu hiệu năng vs. Chi phí:** Phối hợp triển khai `asyncio.gather` để đạt tốc độ benchmark dưới 2 phút. Tuy nhiên, qua quá trình thực hiện, tôi đã nhận diện được sự đánh đổi (Trade-off) giữa tốc độ và giới hạn API (RPM/TPM), từ đó đề xuất giải pháp dùng Semaphore để kiểm soát luồng tránh lỗi 429.
 
-### **Problem Solving (10/10)**
-* **Vấn đề:** Khi tích hợp code giữa hai người làm chung Mission 2, dễ xảy ra tình trạng chồng chéo logic hoặc xung đột khi push code (Merge Conflict).
-* **Giải quyết:** Tôi đã đề xuất cấu trúc Class với các **Private Methods** (`_calculate_agreement_rate`, `_resolve_consensus`) tách biệt hoàn toàn phần "Tính toán toán học" khỏi phần "Gọi API". Điều này cho phép tôi và đồng đội làm việc song song trên cùng một file mà không ảnh hưởng đến logic của nhau, đồng thời giúp việc Unit Test dữ liệu thô trở nên cực kỳ nhanh chóng mà không cần tốn tiền gọi API thật.
-* **Xử lý lỗi (Robustness):** Thiết kế logic xử lý trường hợp một trong hai Judge bị sập (Fallback/Error) bằng cách tự động tin tưởng model còn lại nếu điểm số vẫn trong ngưỡng an toàn, đảm bảo pipeline không bị dừng đột ngột khi chạy benchmark số lượng lớn.
-
----
+### **3. Problem Solving**
+* **Vấn đề:** Trong quá trình tích hợp, hệ thống xuất hiện "điểm ảo" (điểm 5 cho câu trả lời sai) và lỗi xung đột khi push code giữa các thành viên làm chung Mission 2.
+* **Giải quyết:** 
+    * Về kỹ thuật: Tôi đề xuất cấu trúc Class với các **Private Methods** để tách biệt logic tính toán toán học khỏi logic gọi API, giúp team làm việc song song mà không bị Merge Conflict.
+    * Về dữ liệu: Thực hiện phân tích **5 Whys** sâu sát trên file `benchmark_results.json` để truy vết từ triệu chứng "điểm ảo" đến nguyên nhân gốc rễ là hệ thống Judge bị sập và phải dùng Heuristic fallback.
