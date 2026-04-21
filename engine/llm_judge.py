@@ -41,6 +41,8 @@ class LLMJudge:
                 "Score 1-5 based on tone, clarity, structure, and professional language."
             ),
         }
+        self.max_score = 5.0
+        self.conflict_threshold = 1.0
     
     def _calculate_agreement_rate(self, scores: List[float]) -> float:
         """
@@ -79,55 +81,50 @@ class LLMJudge:
 
     async def evaluate_multi_judge(self, question: str, answer: str, ground_truth: str) -> Dict[str, Any]:
         """
-        Run two independent model judges, normalize their JSON output, and resolve disagreement.
+        Run two independent model judges, normalize their JSON output, and use _resolve_consensus.
         """
+        # BƯỚC 1: Gọi API
         openai_task = self._evaluate_openai(question, answer, ground_truth)
         google_task = self._evaluate_google(question, answer, ground_truth)
         openai_result, google_result = await asyncio.gather(openai_task, google_task)
 
+        # Lưu lại chi tiết báo cáo của từng Judge
         judge_results = {
             self.openai_model: openai_result,
             self.google_model: google_result,
         }
 
-        score_a = openai_result["score"]
-        score_b = google_result["score"]
-        disagreement = abs(score_a - score_b)
-        conflict = disagreement > 1
-        agreement_rate = 1.0 if disagreement == 0 else 0.5 if not conflict else 0.0
-
+        # BƯỚC 2: Trích xuất điểm số thô để đưa vào cỗ máy Consensus
+        raw_scores = {
+            self.openai_model: openai_result["score"],
+            self.google_model: google_result["score"]
+        }
+        
+        # BƯỚC 3: Gọi hàm xử lý đồng thuận của BẠN
+        consensus_report = self._resolve_consensus(raw_scores)
+        
+        # BƯỚC 4: Bổ sung các thông tin phụ trợ (xử lý lỗi fallback)
         usable_results = [
             result for result in (openai_result, google_result)
             if not result.get("fallback") and not result.get("error")
         ]
-
-        if conflict and len(usable_results) == 1:
-            final_score = float(usable_results[0]["score"])
-            resolution = "trusted_non_fallback_judge"
-            final_reason = (
-                "High disagreement detected; final score uses the only non-fallback "
-                "judge because the other judge failed or used mock fallback."
-            )
-        elif conflict:
-            final_score = (score_a + score_b) / 2
-            resolution = "high_disagreement_average"
-            final_reason = (
-                "High disagreement detected between real judges; final score is the "
-                "average and should be reviewed manually for important releases."
-            )
+        
+        if consensus_report["has_conflict"] and len(usable_results) == 1:
+            # Nếu 1 model bị sập, lấy điểm của model còn sống
+            consensus_report["final_score"] = float(usable_results[0]["score"])
+            reasoning = "Xung đột do 1 model bị lỗi (fallback). Lấy điểm của model còn hoạt động tốt."
+        elif consensus_report["has_conflict"]:
+            reasoning = "Xung đột điểm số cao giữa các Giám khảo. Cần con người xem xét lại (Manual Review)."
         else:
-            final_score = (score_a + score_b) / 2
-            resolution = "average"
-            final_reason = "Judges are within the allowed disagreement threshold."
+            reasoning = "Các Giám khảo đồng thuận trong ngưỡng cho phép."
 
+        # Đóng gói và trả về định dạng cuối cùng
         return {
-            "final_score": round(final_score, 2),
-            "agreement_rate": round(agreement_rate, 2),
-            "disagreement": disagreement,
-            "conflict": conflict,
-            "resolution": resolution,
-            "reasoning": final_reason,
-            "individual_scores": judge_results,
+            "final_score": consensus_report["final_score"],
+            "agreement_rate": consensus_report["agreement_rate"],
+            "conflict": consensus_report["has_conflict"],
+            "reasoning": reasoning,
+            "individual_scores": judge_results, # Trả về chi tiết full để sau này debug
         }
 
     async def _evaluate_openai(self, question: str, answer: str, ground_truth: str) -> Dict[str, Any]:
