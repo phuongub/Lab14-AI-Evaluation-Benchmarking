@@ -1,8 +1,10 @@
-# Individual Technical Reflection - AI Evaluation Factory
+# Individual Technical Reflection
 
 **Thông tin cá nhân:**
 - **Họ và tên:** Nguyễn Hoàng Nghĩa
 - **Mã sinh viên:** 2A202600161
+- **Nhóm**: C401-B4
+- **Ngày**: 21/04/2026
 
 ---
 
